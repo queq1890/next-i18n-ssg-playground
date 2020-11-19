@@ -1,9 +1,21 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+const translations = {
+  en: {
+    lang: "English",
+  },
+  fr: {
+    lang: "Français",
+  },
+  nl: {
+    country: "Nederland",
+  },
+};
 
 export default function GspPage(props) {
-  const router = useRouter()
-  const { defaultLocale } = router
+  const router = useRouter();
+  const { defaultLocale } = router;
 
   return (
     <div>
@@ -11,6 +23,8 @@ export default function GspPage(props) {
       <p>Current locale: {props.locale}</p>
       <p>Default locale: {defaultLocale}</p>
       <p>Configured locales: {JSON.stringify(props.locales)}</p>
+
+      <p>{translations[props.locale].hello}</p>
 
       <Link href="/gsp/first">
         <a>To dynamic getStaticProps page</a>
@@ -27,7 +41,7 @@ export default function GspPage(props) {
       </Link>
       <br />
     </div>
-  )
+  );
 }
 
 export const getStaticProps = ({ locale, locales }) => {
@@ -36,5 +50,5 @@ export const getStaticProps = ({ locale, locales }) => {
       locale,
       locales,
     },
-  }
-}
+  };
+};
