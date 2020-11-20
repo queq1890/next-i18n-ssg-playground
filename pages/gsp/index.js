@@ -24,7 +24,7 @@ export default function GspPage(props) {
       <p>Default locale: {defaultLocale}</p>
       <p>Configured locales: {JSON.stringify(props.locales)}</p>
 
-      <p>{translations[props.locale].hello}</p>
+      <p>{translations[props.locale].lang}</p>
 
       <Link href="/gsp/first">
         <a>To dynamic getStaticProps page</a>
